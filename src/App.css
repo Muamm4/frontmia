@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-bg-x: back-x 5s ease-in-out infinite alternate;
+  @keyframes back-x {
+    0% {
+      width: 100%;
+    }
+    100% {
+      width: 300%;
+    }
+  }
+}
+
+html{
+    background-color: #070824;
+}
+
+/* Efeito de brilho seguindo o cursor do mouse */
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.cursor-glow {
+  content: '';
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(18, 205, 230, 0.05) 0%, transparent 50%);
+  border-radius: 50%;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+body:hover .cursor-glow {
+  opacity: 1;
+}
